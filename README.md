@@ -27,16 +27,14 @@
 
 	- ```cd /etc/apache2/users/ && sudo touch daniel.conf```
 
-	- ```
-			echo " # This should be omitted in the production environment
+	- ```echo " # This should be omitted in the production environment
 				SetEnv APPLICATION_ENV development
 
 				<Directory "/Users/daniel/Sites/">
      				AllowOverride All
      				Options Indexes MultiViews FollowSymLinks
      				Require all granted
-				</Directory>" > daniel.conf
-		```
+				</Directory>" > daniel.conf```
 
 	- ```sudo chmod 644 daniel.conf```
 
