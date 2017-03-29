@@ -56,11 +56,11 @@
 			- ```Include /private/etc/apache2/extra/httpd-userdir.conf```
 
 			- Also add the lines (enable symlinks):
-			 - ```User daniel```
-			 - ```Group staff```
-			 - and comment out:
-			 - ```User _www```
-			 - ```Group _www```
+				- ```User daniel```
+			 	- ```Group staff```
+			 	- and comment out:
+			 	- ```User _www```
+			 	- ```Group _www```
 
 	- ```sudo nano /etc/apache2/extra/httpd-userdir.conf```
 		- Make sure the following module is uncommented:
