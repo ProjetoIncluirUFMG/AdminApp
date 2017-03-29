@@ -157,3 +157,7 @@
 	- ```sudo chown -R _www ~/Sites/daniel```
 
 	- This will set the contents recursively to be owned by the Apache user.
+
+## Project
+
+	- ```mv projecto_incluir ~/Sites/daniel```: Move project to sites folder
