@@ -152,7 +152,7 @@
 	- ```sudo chmod -R a+w ~/Sites/daniel```
 
 
-- If you are concerned about security then instead of making it world writeable you can set the owner to be Apache _www but when working on files you would have to authenticate more as admin you are “not” the owner, you would do this like so:
+- If you are concerned about security then instead of making it world writeable you can set the owner to be Apache ```_www``` but when working on files you would have to authenticate more as admin you are “not” the owner, you would do this like so:
 
 	- ```sudo chown -R _www ~/Sites/daniel```
 
@@ -160,4 +160,4 @@
 
 ## Project
 
-	- ```mv projecto_incluir ~/Sites/daniel```: Move project to sites folder
+- ```mv projecto_incluir ~/Sites/daniel```: Move project to sites folder
