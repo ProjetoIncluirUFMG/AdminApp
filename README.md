@@ -1,4 +1,4 @@
-# MacOSX
+# MacOSX Setup
 
 ## Apache
 
