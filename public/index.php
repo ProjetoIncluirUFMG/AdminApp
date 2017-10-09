@@ -12,6 +12,18 @@ defined('APPLICATION_PATH')
 defined('APPLICATION_ENV')
     || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'development'));
 
+
+// Define database environment
+defined('DB_HOST')
+    || define('DB_HOST', (getenv('DB_HOST') ? getenv('DB_HOST') : 'db'));
+defined('DB_USERNAME')
+    || define('DB_USERNAME', (getenv('DB_USERNAME') ? getenv('DB_USERNAME') : 'projeto_incluir_user'));
+defined('DB_PASSWORD')
+    || define('DB_PASSWORD', (getenv('DB_PASSWORD') ? getenv('DB_PASSWORD') : 'projeto_incluir_pw'));
+defined('DB_NAME')
+    || define('DB_NAME', (getenv('DB_NAME') ? getenv('DB_NAME') : 'projeto_incluir_db'));
+
+
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
     realpath(APPLICATION_PATH . '/../library'),
