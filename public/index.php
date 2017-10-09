@@ -12,7 +12,6 @@ defined('APPLICATION_PATH')
 defined('APPLICATION_ENV')
     || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'development'));
 
-
 // Define database environment
 defined('DB_HOST')
     || define('DB_HOST', (getenv('DB_HOST') ? getenv('DB_HOST') : 'db'));
