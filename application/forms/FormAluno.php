@@ -319,7 +319,11 @@ class Application_Form_FormAluno extends Zend_Form {
                     'Médio Completo' => 'Médio Completo',
                     'Médio Incompleto' => 'Médio Incompleto',
                     'Superior Completo' => 'Superior Completo',
-                    'Superior Incompleto' => 'Superior Incompleto'
+                    'Superior Incompleto' => 'Superior Incompleto',
+                    'Mestrado Completo' => 'Mestrado Completo',
+                    'Mestrado Incompleto' => 'Mestrado Incompleto',
+                    'Doutorado Completo' => 'Doutorado Completo',
+                    'Doutorado Incompleto' => 'Doutorado Incompleto'
                 ))
                 ->setDecorators(array(
                     'ViewHelper',
@@ -528,7 +532,7 @@ class Application_Form_FormAluno extends Zend_Form {
             if (!empty($turmas_alunos)) {
                 if (in_array($turma->getIdTurma(true), $turmas_alunos))
                     $array_aux[$turma->getIdTurma(true)] = $turma->getDisciplina()->getNomeDisciplina() . ' - ' . $turma->getNomeTurma() . ' | ' . $turma->getHorarioInicio() . ' - ' . $turma->getHorarioFim();
-            } 
+            }
             else
                 $array_aux[$turma->getIdTurma(true)] = $turma->getDisciplina()->getNomeDisciplina() . ' - ' . $turma->getNomeTurma() . ' | ' . $turma->getHorarioInicio() . ' - ' . $turma->getHorarioFim();
         }

@@ -275,7 +275,11 @@ class Application_Form_FormVoluntario extends Zend_Form {
                     'Médio Completo' => 'Médio Completo',
                     'Médio Incompleto' => 'Médio Incompleto',
                     'Superior Completo' => 'Superior Completo',
-                    'Superior Incompleto' => 'Superior Incompleto'
+                    'Superior Incompleto' => 'Superior Incompleto',
+                    'Mestrado Completo' => 'Mestrado Completo',
+                    'Mestrado Incompleto' => 'Mestrado Incompleto',
+                    'Doutorado Completo' => 'Doutorado Completo',
+                    'Doutorado Incompleto' => 'Doutorado Incompleto'
                 ))
                 ->setDecorators(array(
                     'ViewHelper',

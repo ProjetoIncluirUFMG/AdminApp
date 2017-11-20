@@ -44,13 +44,14 @@ class Aplicacao_Acl_Setup {
         $this->_acl->addResource(new Zend_Acl_Resource('periodo'));
         $this->_acl->addResource(new Zend_Acl_Resource('relatorio'));
         $this->_acl->addResource(new Zend_Acl_Resource('datas-atividades'));
+        $this->_acl->addResource(new Zend_Acl_Resource('plataforma-cadastro'));
         $this->_acl->addResource(new Zend_Acl_Resource('alimento'));
         $this->_acl->addResource(new Zend_Acl_Resource('frequencia'));
         $this->_acl->addResource(new Zend_Acl_Resource('atividade'));
         $this->_acl->addResource(new Zend_Acl_Resource('nota'));
         $this->_acl->addResource(new Zend_Acl_Resource('distribuicao-alunos-turmas'));
-        
-        
+
+
     }
 
     /**
@@ -72,6 +73,7 @@ class Aplicacao_Acl_Setup {
                 ->allow('admin', 'turma')
                 ->allow('admin', 'alimento')
                 ->allow('admin', 'datas-atividades')
+                ->allow('admin', 'plataforma-cadastro')
                 ->allow('admin', 'atividade')
                 ->allow('admin', 'distribuicao-alunos-turmas')
                 ->allow('admin', 'frequencia')
