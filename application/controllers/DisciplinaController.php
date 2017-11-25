@@ -56,7 +56,8 @@ class DisciplinaController extends Zend_Controller_Action {
                 $this->_helper->redirector->goToRoute(array('controller' => 'disciplina', 'action' => 'index'), null, true);
 
             if ($form_cadastro->isValid($dados)) {
-                $disciplina = new Application_Model_Disciplina(null, $form_cadastro->getValue('nome_disciplina'), $form_cadastro->getValue('ementa_disciplina'), new Application_Model_Curso(base64_decode($form_cadastro->getValue('id_curso'))), null, Application_Model_Disciplina::status_ativo);
+                $disciplina = new Application_Model_Disciplina(null, $form_cadastro->getValue('nome_disciplina'), $form_cadastro->getValue('ementa_disciplina'), new Application_Model_Curso(base64_decode($form_cadastro->getValue('id_curso'))), null, Application_Model_Disciplina::status_ativo,
+                $form_cadastro->getValue('vagas_do_curso'), $form_cadastro->getValue('fila_de_nivelamento'), $form_cadastro->getValue('fila_de_espera'), $form_cadastro->getValue('idade_minima'));
 
                 if (!empty($dados['pre_requisitos'])) {
                     foreach ($dados['pre_requisitos'] as $pre_requisito)
@@ -81,9 +82,11 @@ class DisciplinaController extends Zend_Controller_Action {
     }
 
     public function alterarAction() {
+
         $id_disciplina = (int) base64_decode($this->getParam('disciplina'));
 
         if ($id_disciplina > 0) {
+
             $this->view->title = "Projeto Incluir - Alterar Disciplina";
             $form_alteracao = new Application_Form_FormDisciplina();
 
@@ -97,7 +100,8 @@ class DisciplinaController extends Zend_Controller_Action {
                     $this->_helper->redirector->goToRoute(array('controller' => 'disciplina', 'action' => 'index'), null, true);
 
                 if ($form_alteracao->isValid($dados)) {
-                    $disciplina = new Application_Model_Disciplina(base64_decode($form_alteracao->getValue('id_disciplina')), $form_alteracao->getValue('nome_disciplina'), $form_alteracao->getValue('ementa_disciplina'), new Application_Model_Curso(base64_decode($form_alteracao->getValue('id_curso'))), null, Application_Model_Disciplina::status_ativo);
+                    $disciplina = new Application_Model_Disciplina(base64_decode($form_alteracao->getValue('id_disciplina')), $form_alteracao->getValue('nome_disciplina'), $form_alteracao->getValue('ementa_disciplina'), new Application_Model_Curso(base64_decode($form_alteracao->getValue('id_curso'))), null, Application_Model_Disciplina::status_ativo,
+                    $form_alteracao->getValue('vagas_do_curso'), $form_alteracao->getValue('fila_de_nivelamento'), $form_alteracao->getValue('fila_de_espera'), $form_alteracao->getValue('idade_minima'));
 
                     if (!empty($dados['pre_requisitos'])) {
                         foreach ($dados['pre_requisitos'] as $pre_requisito)
@@ -272,7 +276,7 @@ class DisciplinaController extends Zend_Controller_Action {
                     else
                         $this->view->mensagem = "A disciplina não foi restaurada, por favor consulte o administrador do sistema para mais informações.";
                 }
-            } 
+            }
             else {
                 $disciplina = $mapper_disciplina->buscaDisciplinaByID($id_disciplina);
 

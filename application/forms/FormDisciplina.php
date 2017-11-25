@@ -6,7 +6,7 @@ class Application_Form_FormDisciplina extends Zend_Form {
         $this->setDecorators(array(
             array('ViewScript', array('viewScript' => 'Decorators/form-disciplina.phtml')))
         );
-        
+
         $string_filter = new Aplicacao_Filtros_StringSimpleFilter();
 
         $id_disciplina = new Zend_Form_Element_Hidden('id_disciplina');
@@ -60,6 +60,51 @@ class Application_Form_FormDisciplina extends Zend_Form {
                     'Errors'
                 ));
 
+
+        $vagas_do_curso = new Zend_Form_Element_Text('vagas_do_curso');
+        $vagas_do_curso->setLabel('Total de Vagas do Curso:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+                ));
+
+        $fila_de_nivelamento = new Zend_Form_Element_Text('fila_de_nivelamento');
+        $fila_de_nivelamento->setLabel('Tamanho da Fila de Nivelamento:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+                ));
+
+        $fila_de_espera = new Zend_Form_Element_Text('fila_de_espera');
+        $fila_de_espera->setLabel('Tamanho da Fila de Espera:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+                ));
+
+        $idade_minima = new Zend_Form_Element_Text('idade_minima');
+        $idade_minima->setLabel('Idade Mínima:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+                ));
+
         /* $duracao = new Zend_Form_Element_Text('duracao');
           $duracao->setLabel('Duração:')
           ->setAttrib('class', 'obrigatorio')
@@ -102,6 +147,10 @@ class Application_Form_FormDisciplina extends Zend_Form {
             $pre_requisito,
             $incluir_pre_requisito,
             //$duracao,
+            $vagas_do_curso,
+            $fila_de_nivelamento,
+            $fila_de_espera,
+            $idade_minima,
             $enviar,
             $cancelar
         ));

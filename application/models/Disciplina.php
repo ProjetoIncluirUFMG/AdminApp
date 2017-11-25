@@ -7,21 +7,41 @@
 class Application_Model_Disciplina {
     const status_ativo = 1;
     const status_inativo = 2;
-    
+
     /**
-     * @var int 
+     * @var int
      */
     private $id_disciplina;
 
     /**
-     * @var String 
+     * @var String
      */
     private $nome_disciplina;
 
     /**
-     * @var String 
+     * @var String
      */
     private $ementa_disciplina;
+
+    /**
+     * @var int
+     */
+    private $vagas_do_curso;
+
+    /**
+     * @var int
+     */
+    private $fila_de_nivelamento;
+
+    /**
+     * @var int
+     */
+    private $fila_de_espera;
+
+    /**
+     * @var int
+     */
+    private $idade_minima;
 
     /**
      * @var Application_Model_Curso
@@ -29,20 +49,24 @@ class Application_Model_Disciplina {
     private $curso;
 
     /**
-     * @var Application_Model_Disciplina[] 
+     * @var Application_Model_Disciplina[]
      */
     private $pre_requisitos;
-    
+
     /**
      *
-     * @var int 
+     * @var int
      */
     private $status;
-    
-    public function __construct($id_disciplina, $nome_disciplina = null, $ementa_disciplina = null, $curso = null, $pre_requisito = null, $status = null) {
+
+    public function __construct($id_disciplina, $nome_disciplina = null, $ementa_disciplina = null, $curso = null, $pre_requisito = null, $status = null, $vagas_do_curso = null, $fila_de_nivelamento = null, $fila_de_espera = null, $idade_minima = null) {
         $this->id_disciplina = ((!empty($id_disciplina)) ? (int) $id_disciplina : null);
         $this->nome_disciplina = $nome_disciplina;
         $this->ementa_disciplina = $ementa_disciplina;
+        $this->vagas_do_curso = $vagas_do_curso;
+        $this->fila_de_nivelamento = $fila_de_nivelamento;
+        $this->fila_de_espera = $fila_de_espera;
+        $this->idade_minima = $idade_minima;
         $this->curso = $curso;
         $this->pre_requisitos = array();
         $this->addPreRequisitos($pre_requisito);
@@ -109,7 +133,7 @@ class Application_Model_Disciplina {
     public function getStatus(){
         return $this->status;
     }
-    
+
     /**
      * Retorna um array com as informações da disciplina.
      * Utilizado tanto para popular formulários de disciplina quanto para cadastro/alteração no banco de dados
@@ -122,6 +146,10 @@ class Application_Model_Disciplina {
             'nome_disciplina' => $this->nome_disciplina,
             'ementa_disciplina' => $this->ementa_disciplina,
             'id_curso' => $this->curso->getIdCurso(),
+            'vagas_do_curso' => $this->vagas_do_curso,
+            'fila_de_nivelamento' => $this->fila_de_nivelamento,
+            'fila_de_espera' => $this->fila_de_espera,
+            'idade_minima' => $this->idade_minima,
             'status' => $this->status
         );
     }

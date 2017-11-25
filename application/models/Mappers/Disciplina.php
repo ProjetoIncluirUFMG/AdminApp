@@ -7,7 +7,7 @@
 class Application_Model_Mappers_Disciplina {
 
     /**
-     * @var Application_Model_DbTable_Disciplina 
+     * @var Application_Model_DbTable_Disciplina
      */
     private $db_disciplina;
 
@@ -127,7 +127,7 @@ class Application_Model_Mappers_Disciplina {
             return false;
         }
     }
-    
+
     /**
      * Altera o status da disciplina especificada para ativo
      * @param int $id_disciplina
@@ -143,7 +143,7 @@ class Application_Model_Mappers_Disciplina {
         }
     }
 
-    
+
     /**
      * Busca os disciplinas de acordo com os filtros especificados
      * @param array $filtros_busca
@@ -205,7 +205,9 @@ class Application_Model_Mappers_Disciplina {
             $disciplina = $this->db_disciplina->fetchRow($select);
 
             if (!empty($disciplina))
-                return new Application_Model_Disciplina($disciplina->id_disciplina, $disciplina->nome_disciplina, $disciplina->ementa_disciplina, new Application_Model_Curso($disciplina->id_curso), $this->getPreRequisitos($disciplina->id_disciplina), $disciplina->status);
+                return new Application_Model_Disciplina($disciplina->id_disciplina, $disciplina->nome_disciplina, $disciplina->ementa_disciplina, new Application_Model_Curso($disciplina->id_curso), $this->getPreRequisitos($disciplina->id_disciplina), $disciplina->status,
+                $disciplina->vagas_do_curso, $disciplina->fila_de_nivelamento,
+                $disciplina->fila_de_espera, $disciplina->idade_minima);
 
             return null;
         } catch (Zend_Exception $e) {
@@ -237,7 +239,9 @@ class Application_Model_Mappers_Disciplina {
                 $array_disciplinas = array();
 
                 foreach ($disciplinas as $disciplina)
-                    $array_disciplinas[] = new Application_Model_Disciplina($disciplina->id_disciplina_pre_requisito, $disciplina->nome_disciplina, null, new Application_Model_Curso($disciplina->id_curso), $disciplina->status);
+                    $array_disciplinas[] = new Application_Model_Disciplina($disciplina->id_disciplina_pre_requisito, $disciplina->nome_disciplina, null, new Application_Model_Curso($disciplina->id_curso), $disciplina->status,
+                    $disciplina->vagas_do_curso, $disciplina->fila_de_nivelamento,
+                    $disciplina->fila_de_espera, $disciplina->idade_minima);
 
                 return $array_disciplinas;
             }
@@ -274,7 +278,9 @@ class Application_Model_Mappers_Disciplina {
                     $array_disciplinas = array();
 
                     foreach ($disciplinas as $disciplina)
-                        $array_disciplinas[] = new Application_Model_Disciplina($disciplina->id_disciplina, $disciplina->nome_disciplina, null, new Application_Model_Curso($disciplina->id_curso, $disciplina->nome_curso, $disciplina->status));
+                        $array_disciplinas[] = new Application_Model_Disciplina($disciplina->id_disciplina, $disciplina->nome_disciplina, null, new Application_Model_Curso($disciplina->id_curso, $disciplina->nome_curso, $disciplina->status), null,
+                        $disciplina->vagas_do_curso, $disciplina->fila_de_nivelamento,
+                        $disciplina->fila_de_espera, $disciplina->idade_minima);
 
                     return $array_disciplinas;
                 }
@@ -305,7 +311,7 @@ class Application_Model_Mappers_Disciplina {
                 foreach ($disciplinas as $disciplina)
                     $array_disciplinas[] = $disciplina->id_disciplina;
             }
-            
+
             return $array_disciplinas;
         } catch (Zend_Exception $e) {
             echo $e->getMessage();
