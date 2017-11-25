@@ -2,7 +2,16 @@
 
 class Application_Form_FormDisciplina extends Zend_Form {
 
+    protected $cadastro;
+
+    public function __construct($cadastro = false)
+    {
+        $this->cadastro = $cadastro;
+        parent::__construct();
+    }
+
     public function init() {
+
         $this->setDecorators(array(
             array('ViewScript', array('viewScript' => 'Decorators/form-disciplina.phtml')))
         );
@@ -60,86 +69,98 @@ class Application_Form_FormDisciplina extends Zend_Form {
                     'Errors'
                 ));
 
+        if ($this->cadastro == false) {
 
-        $vagas_do_curso = new Zend_Form_Element_Text('vagas_do_curso');
-        $vagas_do_curso->setLabel('Total de Vagas do Curso:')
-                ->setAttrib('class', 'obrigatorio')
-                ->setRequired(true)
-                ->addValidator('NotEmpty')
-                ->setDecorators(array(
-                    'ViewHelper',
-                    'Errors',
-                    'Label'
-                ));
+          $vagas_do_curso = new Zend_Form_Element_Text('vagas_do_curso');
+          $vagas_do_curso->setLabel('Total de Vagas do Curso:')
+                  ->setAttrib('class', 'obrigatorio')
+                  ->setRequired(true)
+                  ->addValidator('NotEmpty')
+                  ->setDecorators(array(
+                      'ViewHelper',
+                      'Errors',
+                      'Label'
+                  ));
 
-        $fila_de_nivelamento = new Zend_Form_Element_Text('fila_de_nivelamento');
-        $fila_de_nivelamento->setLabel('Tamanho da Fila de Nivelamento:')
-                ->setAttrib('class', 'obrigatorio')
-                ->setRequired(true)
-                ->addValidator('NotEmpty')
-                ->setDecorators(array(
-                    'ViewHelper',
-                    'Errors',
-                    'Label'
-                ));
+          $fila_de_nivelamento = new Zend_Form_Element_Text('fila_de_nivelamento');
+          $fila_de_nivelamento->setLabel('Tamanho da Fila de Nivelamento:')
+                  ->setAttrib('class', 'obrigatorio')
+                  ->setRequired(true)
+                  ->addValidator('NotEmpty')
+                  ->setDecorators(array(
+                      'ViewHelper',
+                      'Errors',
+                      'Label'
+                  ));
 
-        $fila_de_espera = new Zend_Form_Element_Text('fila_de_espera');
-        $fila_de_espera->setLabel('Tamanho da Fila de Espera:')
-                ->setAttrib('class', 'obrigatorio')
-                ->setRequired(true)
-                ->addValidator('NotEmpty')
-                ->setDecorators(array(
-                    'ViewHelper',
-                    'Errors',
-                    'Label'
-                ));
+          $fila_de_espera = new Zend_Form_Element_Text('fila_de_espera');
+          $fila_de_espera->setLabel('Tamanho da Fila de Espera:')
+                  ->setAttrib('class', 'obrigatorio')
+                  ->setRequired(true)
+                  ->addValidator('NotEmpty')
+                  ->setDecorators(array(
+                      'ViewHelper',
+                      'Errors',
+                      'Label'
+                  ));
 
-        $total_vagas_do_curso = new Zend_Form_Element_Text('total_vagas_do_curso');
-        $total_vagas_do_curso->setLabel('Vagas ocupadas no Curso:')
-                ->setAttrib('class', 'obrigatorio')
-                ->setAttrib('disabled', 'disabled')
-                ->setRequired(true)
-                ->addValidator('NotEmpty')
-                ->setDecorators(array(
-                    'ViewHelper',
-                    'Errors',
-                    'Label'
-                ));
+          $total_vagas_do_curso = new Zend_Form_Element_Text('total_vagas_do_curso');
+          $total_vagas_do_curso->setLabel('Vagas ocupadas no Curso:')
+                  ->setAttrib('class', 'obrigatorio')
+                  ->setAttrib('disabled', 'disabled')
+                  ->setRequired(true)
+                  ->addValidator('NotEmpty')
+                  ->setDecorators(array(
+                      'ViewHelper',
+                      'Errors',
+                      'Label'
+                  ));
 
-        $total_fila_de_nivelamento = new Zend_Form_Element_Text('total_fila_de_nivelamento');
-        $total_fila_de_nivelamento->setLabel('Vagas ocupadas na Fila de Nivelamento:')
-                ->setAttrib('class', 'obrigatorio')
-                ->setAttrib('disabled', 'disabled')
-                ->setRequired(true)
-                ->addValidator('NotEmpty')
-                ->setDecorators(array(
-                    'ViewHelper',
-                    'Errors',
-                    'Label'
-                ));
+          $total_fila_de_nivelamento = new Zend_Form_Element_Text('total_fila_de_nivelamento');
+          $total_fila_de_nivelamento->setLabel('Vagas ocupadas na Fila de Nivelamento:')
+                  ->setAttrib('class', 'obrigatorio')
+                  ->setAttrib('disabled', 'disabled')
+                  ->setRequired(true)
+                  ->addValidator('NotEmpty')
+                  ->setDecorators(array(
+                      'ViewHelper',
+                      'Errors',
+                      'Label'
+                  ));
 
-        $total_fila_de_espera = new Zend_Form_Element_Text('total_fila_de_espera');
-        $total_fila_de_espera->setLabel('Vagas ocupadas na Fila de Espera:')
-                ->setAttrib('class', 'obrigatorio')
-                ->setAttrib('disabled', 'disabled')
-                ->setRequired(true)
-                ->addValidator('NotEmpty')
-                ->setDecorators(array(
-                    'ViewHelper',
-                    'Errors',
-                    'Label'
-                ));
+          $total_fila_de_espera = new Zend_Form_Element_Text('total_fila_de_espera');
+          $total_fila_de_espera->setLabel('Vagas ocupadas na Fila de Espera:')
+                  ->setAttrib('class', 'obrigatorio')
+                  ->setAttrib('disabled', 'disabled')
+                  ->setRequired(true)
+                  ->addValidator('NotEmpty')
+                  ->setDecorators(array(
+                      'ViewHelper',
+                      'Errors',
+                      'Label'
+                  ));
 
-        $idade_minima = new Zend_Form_Element_Text('idade_minima');
-        $idade_minima->setLabel('Idade Mínima:')
-                ->setAttrib('class', 'obrigatorio')
-                ->setRequired(true)
-                ->addValidator('NotEmpty')
-                ->setDecorators(array(
-                    'ViewHelper',
-                    'Errors',
-                    'Label'
-                ));
+          $idade_minima = new Zend_Form_Element_Text('idade_minima');
+          $idade_minima->setLabel('Idade Mínima:')
+                  ->setAttrib('class', 'obrigatorio')
+                  ->setRequired(true)
+                  ->addValidator('NotEmpty')
+                  ->setDecorators(array(
+                      'ViewHelper',
+                      'Errors',
+                      'Label'
+                  ));
+
+          $this->addElements(array(
+              $vagas_do_curso,
+              $fila_de_nivelamento,
+              $fila_de_espera,
+              $total_vagas_do_curso,
+              $total_fila_de_nivelamento,
+              $total_fila_de_espera,
+              $idade_minima
+          ));
+        }
 
         /* $duracao = new Zend_Form_Element_Text('duracao');
           $duracao->setLabel('Duração:')
@@ -183,13 +204,6 @@ class Application_Form_FormDisciplina extends Zend_Form {
             $pre_requisito,
             $incluir_pre_requisito,
             //$duracao,
-            $vagas_do_curso,
-            $fila_de_nivelamento,
-            $fila_de_espera,
-            $total_vagas_do_curso,
-            $total_fila_de_nivelamento,
-            $total_fila_de_espera,
-            $idade_minima,
             $enviar,
             $cancelar
         ));

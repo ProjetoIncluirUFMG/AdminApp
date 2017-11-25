@@ -42,7 +42,7 @@ class DisciplinaController extends Zend_Controller_Action {
     public function cadastrarAction() {
         $this->view->title = "Projeto Incluir - Cadastrar Disciplina";
 
-        $form_cadastro = new Application_Form_FormDisciplina();
+        $form_cadastro = new Application_Form_FormDisciplina(true);
         $mapper_cursos = new Application_Model_Mappers_Curso();
         $mapper_disciplina = new Application_Model_Mappers_Disciplina();
 

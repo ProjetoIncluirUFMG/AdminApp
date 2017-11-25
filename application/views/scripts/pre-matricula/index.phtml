@@ -1,0 +1,47 @@
+<h2>Consultar Pre-Matrícula</h2>
+
+<?= $this->form ?>
+
+<?php if ($this->resultado_busca instanceof Zend_Paginator) : ?>
+    <?php if (count($this->resultado_busca) > 0) : ?>
+        <div id='resultado-busca'>
+            <h3>Resultados da Busca</h3>
+            <span>Foram encontrados (<?= $this->resultado_busca->getTotalItemCount() ?>) registros</span>
+            <table>
+                <tr>
+                    <th>Numero Comprovante</th>
+                    <th>CPF</th>
+                    <th>Nome</th>
+                    <th>Curso</th>
+                    <th>Disciplina</th>
+                    <th>Turma</th>
+                    <th>Veterano</th>
+                    <th>Vaga Garantida</th>
+                    <th>Fila Nivelamento</th>
+                    <th>Fila Espera</th>
+                </tr>
+
+                <?php foreach ($this->resultado_busca as $pre_matricula) : ?>
+                    <tr>
+                        <td><?= $pre_matricula->getNumeroComprovante() ?></td>
+                        <td><?= $pre_matricula->getAlunoCPF() ?></td>
+                        <td><?= $pre_matricula->getNomeAluno() ?></td>
+                        <td><?= $pre_matricula->getNomeCurso() ?></td>
+                        <td><?= $pre_matricula->getNomeDisciplina() ?></td>
+                        <td><?= $pre_matricula->getNomeTurma() ?></td>
+                        <td><?= $pre_matricula->getVeterano() != 0 ? 'X' : '' ?></td>
+                        <td><?= $pre_matricula->getVagaGarantida() != 0 ? 'X' : '' ?></td>
+                        <td><?= $pre_matricula->getFilaNivelamento() != 0 ? 'X' : '' ?></td>
+                        <td><?= $pre_matricula->getFilaEspera() != 0 ? 'X' : '' ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+
+        <?php echo $this->paginationControl($this->resultado_busca, 'Sliding', 'Decorators/pagination.phtml'); ?>
+
+    <?php else : ?>
+        <script>exibeMensagem('Nenhum pre-matrícula foi encontrada.', 'Busca de Pre-Matrícula');</script>
+
+    <?php endif; ?>
+<?php endif; ?>
