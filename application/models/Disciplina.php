@@ -44,6 +44,21 @@ class Application_Model_Disciplina {
     private $idade_minima;
 
     /**
+     * @var int
+     */
+    private $total_vagas_do_curso;
+
+    /**
+     * @var int
+     */
+    private $total_fila_de_nivelamento;
+
+    /**
+     * @var int
+     */
+    private $total_fila_de_espera;
+
+    /**
      * @var Application_Model_Curso
      */
     private $curso;
@@ -59,7 +74,9 @@ class Application_Model_Disciplina {
      */
     private $status;
 
-    public function __construct($id_disciplina, $nome_disciplina = null, $ementa_disciplina = null, $curso = null, $pre_requisito = null, $status = null, $vagas_do_curso = null, $fila_de_nivelamento = null, $fila_de_espera = null, $idade_minima = null) {
+    public function __construct($id_disciplina, $nome_disciplina = null, $ementa_disciplina = null, $curso = null, $pre_requisito = null, $status = null, $vagas_do_curso = null, $fila_de_nivelamento = null, $fila_de_espera = null, $idade_minima = null,
+    $total_vagas_do_curso = null, $total_fila_de_nivelamento = null,
+    $total_fila_de_espera = null) {
         $this->id_disciplina = ((!empty($id_disciplina)) ? (int) $id_disciplina : null);
         $this->nome_disciplina = $nome_disciplina;
         $this->ementa_disciplina = $ementa_disciplina;
@@ -67,6 +84,9 @@ class Application_Model_Disciplina {
         $this->fila_de_nivelamento = $fila_de_nivelamento;
         $this->fila_de_espera = $fila_de_espera;
         $this->idade_minima = $idade_minima;
+        $this->total_vagas_do_curso = $total_vagas_do_curso;
+        $this->total_fila_de_nivelamento = $total_fila_de_nivelamento;
+        $this->total_fila_de_espera = $total_fila_de_espera;
         $this->curso = $curso;
         $this->pre_requisitos = array();
         $this->addPreRequisitos($pre_requisito);
@@ -149,6 +169,9 @@ class Application_Model_Disciplina {
             'vagas_do_curso' => $this->vagas_do_curso,
             'fila_de_nivelamento' => $this->fila_de_nivelamento,
             'fila_de_espera' => $this->fila_de_espera,
+            'total_vagas_do_curso' => $this->total_vagas_do_curso,
+            'total_fila_de_nivelamento' => $this->total_fila_de_nivelamento,
+            'total_fila_de_espera' => $this->total_fila_de_espera,
             'idade_minima' => $this->idade_minima,
             'status' => $this->status
         );

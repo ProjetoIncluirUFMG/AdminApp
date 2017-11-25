@@ -207,7 +207,9 @@ class Application_Model_Mappers_Disciplina {
             if (!empty($disciplina))
                 return new Application_Model_Disciplina($disciplina->id_disciplina, $disciplina->nome_disciplina, $disciplina->ementa_disciplina, new Application_Model_Curso($disciplina->id_curso), $this->getPreRequisitos($disciplina->id_disciplina), $disciplina->status,
                 $disciplina->vagas_do_curso, $disciplina->fila_de_nivelamento,
-                $disciplina->fila_de_espera, $disciplina->idade_minima);
+                $disciplina->fila_de_espera, $disciplina->idade_minima,
+                $disciplina->total_vagas_do_curso, $disciplina->total_fila_de_nivelamento,
+                $disciplina->total_fila_de_espera);
 
             return null;
         } catch (Zend_Exception $e) {

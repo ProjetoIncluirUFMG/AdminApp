@@ -94,6 +94,42 @@ class Application_Form_FormDisciplina extends Zend_Form {
                     'Label'
                 ));
 
+        $total_vagas_do_curso = new Zend_Form_Element_Text('total_vagas_do_curso');
+        $total_vagas_do_curso->setLabel('Vagas ocupadas no Curso:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setAttrib('disabled', 'disabled')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+                ));
+
+        $total_fila_de_nivelamento = new Zend_Form_Element_Text('total_fila_de_nivelamento');
+        $total_fila_de_nivelamento->setLabel('Vagas ocupadas na Fila de Nivelamento:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setAttrib('disabled', 'disabled')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+                ));
+
+        $total_fila_de_espera = new Zend_Form_Element_Text('total_fila_de_espera');
+        $total_fila_de_espera->setLabel('Vagas ocupadas na Fila de Espera:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setAttrib('disabled', 'disabled')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+                ));
+
         $idade_minima = new Zend_Form_Element_Text('idade_minima');
         $idade_minima->setLabel('Idade Mínima:')
                 ->setAttrib('class', 'obrigatorio')
@@ -150,6 +186,9 @@ class Application_Form_FormDisciplina extends Zend_Form {
             $vagas_do_curso,
             $fila_de_nivelamento,
             $fila_de_espera,
+            $total_vagas_do_curso,
+            $total_fila_de_nivelamento,
+            $total_fila_de_espera,
             $idade_minima,
             $enviar,
             $cancelar
