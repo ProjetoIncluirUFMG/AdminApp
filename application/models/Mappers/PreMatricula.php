@@ -12,6 +12,28 @@ class Application_Model_Mappers_PreMatricula {
     private $db_curso;
 
     /**
+     * Remover todas pre-matriculas
+     * @return boolean
+     */
+    public function removerPreMatriculas() {
+
+      try {
+
+        $this->db_pre_matricula = new Application_Model_DbTable_PreMatricula();
+        $where = $this->db_pre_matricula->getAdapter()->quoteInto('status = ?', 'Ativo');
+
+        $this->db_pre_matricula->update(array('status' => 'Deletado', 'data_modificado' => date("Y-m-d h:i:s")), $where);
+
+        return true;
+
+      } catch (Zend_Exception $e) {
+          echo $e->getMessage();
+          return null;
+      }
+
+    }
+
+    /**
      * Busca as pre-matriculas de acordo com os filtros especificados
      * @param array $filtros_busca
      * @param boolean $paginator
@@ -23,6 +45,8 @@ class Application_Model_Mappers_PreMatricula {
             $select = $this->db_pre_matricula->select()
                     ->from('pre_matricula', array('numero_comprovante', 'aluno_cpf', 'nome_curso', 'id_curso', 'nome_disciplina', 'id_disciplina', 'nome_turma', 'id_turma', 'veterano', 'vaga_garantida', 'fila_nivelamento', 'fila_espera', 'nome_aluno', 'id_aluno'))
                     ->order('numero_comprovante ASC');
+
+            $select->where('status = ?', 'Ativo');
 
             if (!empty($filtros_busca['nome_aluno']))
                 $select->where('nome_aluno LIKE ?', '%' . $filtros_busca['nome_aluno'] . '%');

@@ -26,7 +26,8 @@ class Application_Model_Mappers_ConfiguracaoCadastro {
         $configuracao_cadastro = $this->db_configuracao_cadastro->fetchRow($select);
 
         if (!empty($configuracao_cadastro))
-            return new Application_Model_ConfiguracaoCadastro( $configuracao_cadastro->texto_inicial, $configuracao_cadastro->somente_veterano);
+            return new Application_Model_ConfiguracaoCadastro( $configuracao_cadastro->texto_inicial, $configuracao_cadastro->somente_veterano,
+            $configuracao_cadastro->sistema_ativo);
 
         return null;
 

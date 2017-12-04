@@ -11,6 +11,14 @@
       <tr>
           <td>
             <div class="radio">
+                <span class="span-radio">Status Plataforma de Cadastro</span>
+                <?= $this->element->sistema_ativo ?>
+            </div>
+          </td>
+      </tr>
+      <tr>
+          <td>
+            <div class="radio">
                 <span class="span-radio">Liberação do cadastro</span>
                 <?= $this->element->somente_veterano ?>
             </div>
@@ -24,6 +32,10 @@
           <td><?= $this->element->cancelar ?></td>
       </tr>
   </table>
+
+  <div style="margin: 2em 2em 0 2em; float: right;">
+       <?= $this->element->limpar_tabela_pre_matricula ?>
+  </div>
 
 
 </form>

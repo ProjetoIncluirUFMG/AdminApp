@@ -17,12 +17,23 @@ class PlataformaCadastroController extends Zend_Controller_Action {
         if ($this->getRequest()->isPost()) {
           $dados = $this->getRequest()->getPost();
 
+          if (isset($dados['limpar_tabela_pre_matricula'])) {
+            $pre_matriculas_mapper = new Application_Model_Mappers_PreMatricula();
+
+            if ($pre_matriculas_mapper->removerPreMatriculas()) {
+                $this->view->mensagem = "Pre matriculas deletadas com sucesso!";
+                return;
+            }
+          }
+
+
           if (isset($dados['cancelar']))
               $this->_helper->redirector->goToRoute($usuario->getUserIndex(), null, true);
 
           if ($form->isValid($dados)) {
 
-            $configuracao = new Application_Model_ConfiguracaoCadastro( $form->getValue('texto_inicial'),   $form->getValue('somente_veterano'));
+            $configuracao = new Application_Model_ConfiguracaoCadastro( $form->getValue('texto_inicial'),   $form->getValue('somente_veterano'),
+            $form->getValue('sistema_ativo'));
 
             $configuracao_mapper = new Application_Model_Mappers_ConfiguracaoCadastro($configuracao);
 

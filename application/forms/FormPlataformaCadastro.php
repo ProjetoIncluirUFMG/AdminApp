@@ -7,8 +7,20 @@ class Application_Form_FormPlataformaCadastro extends Zend_Form {
             array('ViewScript', array('viewScript' => 'Decorators/form-plataforma-cadastro.phtml')))
         );
 
-        $liberacao_cadastro = new Zend_Form_Element_Radio('somente_veterano');
-        $liberacao_cadastro->setMultiOptions(array(
+        $sistema_ativo = new Zend_Form_Element_Radio('sistema_ativo');
+        $sistema_ativo->setMultiOptions(array(
+                    1 => 'Sistema ativo',
+                    0 => 'Sistema inativo'
+                ))
+                ->setValue(1)
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors'
+                ))
+                ->setSeparator(' ');
+
+        $somente_veterano = new Zend_Form_Element_Radio('somente_veterano');
+        $somente_veterano->setMultiOptions(array(
                     1 => 'Somente veterados',
                     0 => 'Todos os alunos'
                 ))
@@ -43,10 +55,18 @@ class Application_Form_FormPlataformaCadastro extends Zend_Form {
                     'ViewHelper'
         ));
 
+        $limpar_tabela_pre_matricula = new Zend_Form_Element_Submit('limpar_tabela_pre_matricula');
+        $limpar_tabela_pre_matricula->setLabel('Limpar tabela de pre matricula')
+                ->setDecorators(array(
+                    'ViewHelper'
+        ));
+
         $this->addElements(array(
+            $sistema_ativo,
             $texto_inicial,
-            $liberacao_cadastro,
+            $somente_veterano,
             $enviar,
+            $limpar_tabela_pre_matricula,
             $cancelar
         ));
     }
