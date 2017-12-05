@@ -32,7 +32,14 @@ class PlataformaCadastroController extends Zend_Controller_Action {
 
           if ($form->isValid($dados)) {
 
-            $configuracao = new Application_Model_ConfiguracaoCadastro( $form->getValue('texto_inicial'),   $form->getValue('somente_veterano'),
+            $configuracao = new Application_Model_ConfiguracaoCadastro( $form->getValue('texto_inicial'),
+            $form->getValue('texto_pagina_fila_espera'),
+            $form->getValue('texto_pagina_fila_nivelamento'),
+            $form->getValue('texto_pagina_vaga_disponivel'),
+            $form->getValue('texto_popup_fila_espera'),
+            $form->getValue('texto_popup_fila_nivelamento'),
+            $form->getValue('texto_popup_vaga_disponivel'), 
+            $form->getValue('somente_veterano'),
             $form->getValue('sistema_ativo'));
 
             $configuracao_mapper = new Application_Model_Mappers_ConfiguracaoCadastro($configuracao);

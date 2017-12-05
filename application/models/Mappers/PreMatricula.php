@@ -43,7 +43,7 @@ class Application_Model_Mappers_PreMatricula {
         try {
             $this->db_pre_matricula = new Application_Model_DbTable_PreMatricula();
             $select = $this->db_pre_matricula->select()
-                    ->from('pre_matricula', array('numero_comprovante', 'aluno_cpf', 'nome_curso', 'id_curso', 'nome_disciplina', 'id_disciplina', 'nome_turma', 'id_turma', 'veterano', 'vaga_garantida', 'fila_nivelamento', 'fila_espera', 'nome_aluno', 'id_aluno'))
+                    ->from('pre_matricula', array('numero_comprovante', 'turma', 'id_aluno', 'cpf_aluno', 'nome_aluno', 'id_disciplina', 'nome_disciplina', 'veterano', 'vaga_garantida', 'fila_de_nivelamento', 'fila_de_espera', 'status'))
                     ->order('numero_comprovante ASC');
 
             $select->where('status = ?', 'Ativo');
@@ -61,7 +61,7 @@ class Application_Model_Mappers_PreMatricula {
                     $array_pre_matriculas = array();
 
                     foreach ($pre_matriculas as $pre_matricula)
-                        $array_pre_matriculas[] = new Application_Model_PreMatricula($pre_matricula->numero_comprovante, $pre_matricula->aluno_cpf, $pre_matricula->nome_curso, $pre_matricula->id_curso, $pre_matricula->nome_disciplina, $pre_matricula->id_disciplina, $pre_matricula->nome_turma, $pre_matricula->id_turma, $pre_matricula->veterano, $pre_matricula->vaga_garantida, $pre_matricula->fila_nivelamento, $pre_matricula->fila_espera, $pre_matricula->nome_aluno, $pre_matricula->id_aluno);
+                        $array_pre_matriculas[] = new Application_Model_PreMatricula($pre_matricula->numero_comprovante, $pre_matricula->turma, $pre_matricula->id_aluno, $pre_matricula->cpf_aluno, $pre_matricula->nome_aluno, $pre_matricula->id_disciplina, $pre_matricula->nome_disciplina, $pre_matricula->veterano, $pre_matricula->vaga_garantida, $pre_matricula->fila_de_nivelamento, $pre_matricula->fila_de_espera, $pre_matricula->status);
 
                     return $array_pre_matriculas;
                 }

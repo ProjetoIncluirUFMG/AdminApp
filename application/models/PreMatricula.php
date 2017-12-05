@@ -14,22 +14,22 @@ class Application_Model_PreMatricula {
     /**
      * @var String
      */
-    private $aluno_cpf;
-
-    /**
-     * @var String
-     */
-    private $nome_curso;
+    private $turma;
 
     /**
      * @var int
      */
-    private $id_curso;
+    private $id_aluno;
 
     /**
      * @var String
      */
-    private $nome_disciplina;
+    private $cpf_aluno;
+
+    /**
+     * @var String
+     */
+    private $nome_aluno;
 
     /**
      * @var int
@@ -39,12 +39,7 @@ class Application_Model_PreMatricula {
     /**
      * @var String
      */
-    private $nome_turma;
-
-    /**
-     * @var int
-     */
-    private $id_turma;
+    private $nome_disciplina;
 
     /**
      * @var int
@@ -59,72 +54,60 @@ class Application_Model_PreMatricula {
     /**
      * @var int
      */
-    private $fila_nivelamento;
+    private $fila_de_nivelamento;
 
     /**
      * @var int
      */
-    private $fila_espera;
+    private $fila_de_espera;
 
     /**
      * @var String
      */
-    private $nome_aluno;
+    private $status;
 
-    /**
-     * @var int
-     */
-    private $id_aluno;
 
-    public function __construct($numero_comprovante = null, $aluno_cpf = null, $nome_curso = null, $id_curso = null, $nome_disciplina = null, $id_disciplina = null, $nome_turma = null, $id_turma = null, $veterano = null, $vaga_garantida = null, $fila_nivelamento = null, $fila_espera = null, $nome_aluno = null, $id_aluno = null) {
-
+    public function __construct($numero_comprovante = null, $turma = null, $id_aluno = null, $cpf_aluno = null, $nome_aluno = null, $id_disciplina = null, $nome_disciplina = null, $veterano = null, $vaga_garantida = null, $fila_de_nivelamento = null, $fila_de_espera = null, $status = null) {
         $this->numero_comprovante = $numero_comprovante;
-        $this->aluno_cpf = $aluno_cpf;
-        $this->nome_curso = $nome_curso;
-        $this->id_curso = $id_curso;
-        $this->nome_disciplina = $nome_disciplina;
-        $this->id_disciplina = $id_disciplina;
-        $this->nome_turma = $nome_turma;
-        $this->id_turma = $id_turma;
-        $this->veterano = (int) $veterano;
-        $this->vaga_garantida = (int) $vaga_garantida;
-        $this->fila_nivelamento = (int) $fila_nivelamento;
-        $this->fila_espera = (int) $fila_espera;
-        $this->nome_aluno = $nome_aluno;
+        $this->turma = $turma;
         $this->id_aluno = $id_aluno;
-
+        $this->cpf_aluno = $cpf_aluno;
+        $this->nome_aluno = $nome_aluno;
+        $this->id_disciplina = $id_disciplina;
+        $this->nome_disciplina = $nome_disciplina;
+        $this->veterano = $veterano;
+        $this->vaga_garantida = $vaga_garantida;
+        $this->fila_de_nivelamento = $fila_de_nivelamento;
+        $this->fila_de_espera = $fila_de_espera;
+        $this->status = $status;
     }
 
     public function getNumeroComprovante() {
         return $this->numero_comprovante;
     }
 
-    public function getAlunoCPF() {
-        return $this->aluno_cpf;
+    public function getTurma() {
+        return $this->turma;
     }
 
-    public function getNomeCurso() {
-        return $this->nome_curso;
+    public function getIdAluno() {
+        return $this->id_aluno;
     }
 
-    public function getIdCurso() {
-        return $this->id_curso;
+    public function getNomeAluno() {
+        return $this->nome_aluno;
     }
 
-    public function getNomeDisciplina() {
-        return $this->nome_disciplina;
+    public function getCPFAluno() {
+        return $this->cpf_aluno;
     }
 
     public function getIdDisciplina() {
         return $this->id_disciplina;
     }
 
-    public function getNomeTurma() {
-        return $this->nome_turma;
-    }
-
-    public function getIdTurma() {
-        return $this->id_turma;
+    public function getNomeDisciplina() {
+        return $this->nome_disciplina;
     }
 
     public function getVeterano() {
@@ -135,20 +118,16 @@ class Application_Model_PreMatricula {
         return $this->vaga_garantida;
     }
 
-    public function getFilaNivelamento() {
-        return $this->fila_nivelamento;
+    public function getFilaDeNivelamento() {
+        return $this->fila_de_nivelamento;
     }
 
-    public function getFilaEspera() {
-        return $this->fila_espera;
+    public function getFilaDeEspera() {
+        return $this->fila_de_espera;
     }
 
-    public function getNomeAluno() {
-        return $this->nome_aluno;
-    }
-
-    public function getIdAluno() {
-        return $this->id_aluno;
+    public function getStatus() {
+        return $this->status;
     }
 
     /**
@@ -159,19 +138,17 @@ class Application_Model_PreMatricula {
     public function parseArray() {
         return array(
             'numero_comprovante' => $this->numero_comprovante,
-            'aluno_cpf' => $this->aluno_cpf,
-            'nome_curso' => $this->nome_curso,
-            'id_curso' => $this->id_curso,
-            'nome_disciplina' => $this->nome_disciplina,
+            'turma' => $this->turma,
+            'id_aluno' => $this->id_aluno,
+            'cpf_aluno' => $this->cpf_aluno,
+            'nome_aluno' => $this->nome_aluno,
             'id_disciplina' => $this->id_disciplina,
-            'nome_turma' => $this->nome_turma,
-            'id_turma' => $this->id_turma,
+            'nome_disciplina' => $this->nome_disciplina,
             'veterano' => $this->veterano,
             'vaga_garantida' => $this->vaga_garantida,
-            'fila_nivelamento' => $this->fila_nivelamento,
-            'fila_espera' => $this->fila_espera,
-            'nome_aluno' => $this->nome_aluno,
-            'id_aluno' => $this->id_aluno
+            'fila_de_nivelamento' => $this->fila_de_nivelamento,
+            'fila_de_espera' => $this->fila_de_espera,
+            'status' => $this->status,
         );
     }
 

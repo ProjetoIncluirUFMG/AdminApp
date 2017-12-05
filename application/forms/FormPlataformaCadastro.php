@@ -42,6 +42,72 @@ class Application_Form_FormPlataformaCadastro extends Zend_Form {
                     'Label'
         ));
 
+        $texto_pagina_fila_espera = new Zend_Form_Element_Textarea('texto_pagina_fila_espera');
+        $texto_pagina_fila_espera->setLabel('Texto página fila de espera:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+        ));
+
+        $texto_pagina_fila_nivelamento = new Zend_Form_Element_Textarea('texto_pagina_fila_nivelamento');
+        $texto_pagina_fila_nivelamento->setLabel('Texto página fila de nivelamento:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+        ));
+
+        $texto_pagina_vaga_disponivel = new Zend_Form_Element_Textarea('texto_pagina_vaga_disponivel');
+        $texto_pagina_vaga_disponivel->setLabel('Texto página vaga disponivel:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+        ));
+
+        $texto_popup_fila_espera = new Zend_Form_Element_Textarea('texto_popup_fila_espera');
+        $texto_popup_fila_espera->setLabel('Texto popup fila de espera:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+        ));
+
+        $texto_popup_fila_nivelamento = new Zend_Form_Element_Textarea('texto_popup_fila_nivelamento');
+        $texto_popup_fila_nivelamento->setLabel('Texto popup fila de nivelamento:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+        ));
+
+        $texto_popup_vaga_disponivel = new Zend_Form_Element_Textarea('texto_popup_vaga_disponivel');
+        $texto_popup_vaga_disponivel->setLabel('Texto popup vaga dispoivel:')
+                ->setAttrib('class', 'obrigatorio')
+                ->setRequired(true)
+                ->addValidator('NotEmpty')
+                ->setDecorators(array(
+                    'ViewHelper',
+                    'Errors',
+                    'Label'
+        ));
+
         $enviar = new Zend_Form_Element_Submit('enviar');
         $enviar->setLabel('Salvar')
                 ->setDecorators(array(
@@ -64,6 +130,12 @@ class Application_Form_FormPlataformaCadastro extends Zend_Form {
         $this->addElements(array(
             $sistema_ativo,
             $texto_inicial,
+            $texto_pagina_fila_espera,
+            $texto_pagina_fila_nivelamento,
+            $texto_pagina_vaga_disponivel,
+            $texto_popup_fila_espera,
+            $texto_popup_fila_nivelamento,
+            $texto_popup_vaga_disponivel,
             $somente_veterano,
             $enviar,
             $limpar_tabela_pre_matricula,
