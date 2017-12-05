@@ -108,7 +108,7 @@ class Application_Form_FormDisciplina extends Zend_Form {
           $total_vagas_do_curso->setLabel('Vagas ocupadas no Curso:')
                   ->setAttrib('class', 'obrigatorio')
                   ->setAttrib('disabled', 'disabled')
-                  ->setRequired(true)
+                  ->setRequired(false)
                   ->addValidator('NotEmpty')
                   ->setDecorators(array(
                       'ViewHelper',
@@ -120,7 +120,7 @@ class Application_Form_FormDisciplina extends Zend_Form {
           $total_fila_de_nivelamento->setLabel('Vagas ocupadas na Fila de Nivelamento:')
                   ->setAttrib('class', 'obrigatorio')
                   ->setAttrib('disabled', 'disabled')
-                  ->setRequired(true)
+                  ->setRequired(false)
                   ->addValidator('NotEmpty')
                   ->setDecorators(array(
                       'ViewHelper',
@@ -132,7 +132,7 @@ class Application_Form_FormDisciplina extends Zend_Form {
           $total_fila_de_espera->setLabel('Vagas ocupadas na Fila de Espera:')
                   ->setAttrib('class', 'obrigatorio')
                   ->setAttrib('disabled', 'disabled')
-                  ->setRequired(true)
+                  ->setRequired(false)
                   ->addValidator('NotEmpty')
                   ->setDecorators(array(
                       'ViewHelper',
