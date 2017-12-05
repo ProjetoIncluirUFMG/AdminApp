@@ -157,7 +157,7 @@ class Aplicacao_Relatorio_Excel {
                         ->setSize(12)
                         ->setColor(new PHPExcel_Style_Color('#00000'));
 
-                $image = file_get_contents('imagens/logo-projeto-incluir.PNG');
+                $image = file_get_contents(getcwd().'/imagens/logo-projeto-incluir.PNG');
                 file_put_contents('logo.png', $image);
 
                 $indice_sheet = 0;
@@ -372,7 +372,7 @@ class Aplicacao_Relatorio_Excel {
                         ->setSize(12)
                         ->setColor(new PHPExcel_Style_Color('#00000'));
 
-                $image = file_get_contents('imagens/logo-projeto-incluir.PNG');
+                $image = file_get_contents(getcwd().'/imagens/logo-projeto-incluir.PNG');
                 file_put_contents('logo.png', $image);
 
                 $sheet = $excel->getActiveSheet();
@@ -591,7 +591,7 @@ class Aplicacao_Relatorio_Excel {
                 set_time_limit(0);
                 @ini_set('memory_limit', '512M');
 
-                $image = file_get_contents('imagens/logo-projeto-incluir.PNG');
+                $image = file_get_contents(getcwd().'/imagens/logo-projeto-incluir.PNG');
                 file_put_contents('logo.png', $image);
 
                 $mapper_turma = new Application_Model_Mappers_Turma();
@@ -619,7 +619,7 @@ class Aplicacao_Relatorio_Excel {
 
                     $new_sheet = $excel->createSheet($indice_sheet);
 
-                    $objDrawing = new PHPExcel_Worksheet_Drawing(); 
+                    $objDrawing = new PHPExcel_Worksheet_Drawing();
                     $objDrawing->setName('Logo Projeto Incluir')
                             ->setDescription('Logo Projeto Incluir')
                             ->setPath('logo.png')
@@ -794,7 +794,7 @@ class Aplicacao_Relatorio_Excel {
             if (!empty($alunos_turmas) && $calendario instanceof Application_Model_DatasAtividade) {
                 set_time_limit(0);
 
-                $image = file_get_contents('imagens/logo-projeto-incluir.PNG');
+                $image = file_get_contents(getcwd().'/imagens/logo-projeto-incluir.PNG');
                 file_put_contents('logo.png', $image);
 
                 $mapper_turma = new Application_Model_Mappers_Turma();
@@ -1017,7 +1017,7 @@ class Aplicacao_Relatorio_Excel {
                 echo 'to aqui';
                 $array_aprovacao = array(1 => 'Sim', 0 => 'Não', null => '-');
                 $total_aulas = $calendario_atual->getQuantidadeAulas();
-            
+
                 $mapper_turma = new Application_Model_Mappers_Turma();
                 //$filter = new Aplicacao_Filtros_StringSimpleFilter();
 
@@ -1030,7 +1030,7 @@ class Aplicacao_Relatorio_Excel {
                         ->setSize(12)
                         ->setColor(new PHPExcel_Style_Color('#00000'));
 
-                $image = file_get_contents('imagens/logo-projeto-incluir.PNG');
+                $image = file_get_contents(getcwd().'/imagens/logo-projeto-incluir.PNG');
                 file_put_contents('logo.png', $image);
 
                 $sheet = $excel->getActiveSheet();
@@ -1205,7 +1205,7 @@ class Aplicacao_Relatorio_Excel {
                         ->setSize(12)
                         ->setColor(new PHPExcel_Style_Color('#00000'));
 
-                $image = file_get_contents('imagens/logo-projeto-incluir.PNG');
+                $image = file_get_contents(getcwd().'/imagens/logo-projeto-incluir.PNG');
                 file_put_contents('logo.png', $image);
 
                 $sheet = $excel->getActiveSheet();
@@ -1377,7 +1377,7 @@ class Aplicacao_Relatorio_Excel {
         else
             return null;
     }
-    
+
      public function getListaTeste($alunos_turmas, $formato_saida,$perAtual) {
         try {
 
@@ -1385,7 +1385,7 @@ class Aplicacao_Relatorio_Excel {
                 set_time_limit(0);
                 @ini_set('memory_limit', '512M');
 
-                $image = file_get_contents('imagens/logo-projeto-incluir.PNG');
+                $image = file_get_contents(getcwd().'/imagens/logo-projeto-incluir.PNG');
                 file_put_contents('logo.png', $image);
 
                 $mapper_turma = new Application_Model_Mappers_Turma();
@@ -1414,7 +1414,7 @@ class Aplicacao_Relatorio_Excel {
 
                     $new_sheet = $excel->createSheet($indice_sheet);
 
-                    $objDrawing = new PHPExcel_Worksheet_Drawing(); 
+                    $objDrawing = new PHPExcel_Worksheet_Drawing();
                     $objDrawing->setName('Logo Projeto Incluir')
                             ->setDescription('Logo Projeto Incluir')
                             ->setPath('logo.png')
@@ -1588,7 +1588,7 @@ class Aplicacao_Relatorio_Excel {
             if (!empty($alunos_turmas) && $calendario instanceof Application_Model_DatasAtividade) {
                 set_time_limit(0);
 
-                $image = file_get_contents('imagens/logo-projeto-incluir.PNG');
+                $image = file_get_contents(getcwd().'/imagens/logo-projeto-incluir.PNG');
                 file_put_contents('logo.png', $image);
 
                 $mapper_turma = new Application_Model_Mappers_Turma();
@@ -1651,7 +1651,7 @@ class Aplicacao_Relatorio_Excel {
                     $new_sheet->getPageSetup()->setFitToWidth(1);
                     $new_sheet->getPageSetup()->setFitToHeight(0);
 
-                    
+
                     $new_sheet->setCellValue('C1', "Diário de Classe - ". $turma->getPeriodoString() ."\n FREQUÊNCIA" );
                     $new_sheet->getStyle('C1')->applyFromArray(
                             array(
@@ -1700,7 +1700,7 @@ class Aplicacao_Relatorio_Excel {
                    // $new_sheet->mergeCells('B1:' . $this->getLetra($j - 1) . '1'); // linha título
                     $new_sheet->mergeCells('C1:G1');
                     $new_sheet->mergeCells('A4:' . $this->getLetra($j - 1) . '4'); // linha turma
-                    
+
                     $new_sheet->getStyle('A5:' . $this->getLetra($j - 1) . '5')->applyFromArray(
                             array('borders' => array(
                                     'allborders' => array(
@@ -1721,8 +1721,8 @@ class Aplicacao_Relatorio_Excel {
                                 'fill' => array(
                                     'type' => PHPExcel_Style_Fill::FILL_SOLID,
                                     'color' => array('rgb' => '808080')
-                                ))        
-                                        
+                                ))
+
                     );
 
                     $new_sheet->setCellValue('A5', 'Nº ');
@@ -1832,7 +1832,7 @@ class Aplicacao_Relatorio_Excel {
             if (!empty($alunos_turmas) && $calendario instanceof Application_Model_DatasAtividade) {
                 set_time_limit(0);
 
-                $image = file_get_contents('imagens/logo-projeto-incluir.PNG');
+                $image = file_get_contents(getcwd().'/imagens/logo-projeto-incluir.PNG');
                 file_put_contents('logo.png', $image);
 
                 $mapper_turma = new Application_Model_Mappers_Turma();
@@ -1894,7 +1894,7 @@ class Aplicacao_Relatorio_Excel {
                     $new_sheet->getPageSetup()->setFitToWidth(1);
                     $new_sheet->getPageSetup()->setFitToHeight(0);
 
-                    
+
                     $new_sheet->setCellValue('C1', "Diário de Classe - "."\n NOTAS" );
                     $new_sheet->getStyle('C1')->applyFromArray(
                             array(
@@ -1940,12 +1940,12 @@ class Aplicacao_Relatorio_Excel {
                             $new_sheet->setCellValue($letra . '5', strftime("%d/%b", $timestamp)); //$data_letiva->format('d/M'));
                     }
                   */
-                    
-                    
+
+
                    // $new_sheet->mergeCells('B1:' . $this->getLetra($j - 1) . '1'); // linha título
                     $new_sheet->mergeCells('C1:G1');
                     $new_sheet->mergeCells('A4:' . $this->getLetra($j - 1) . '4'); // linha turma
-                    
+
                     $new_sheet->getStyle('A5:' . $this->getLetra($j - 1) . '5')->applyFromArray(
                             array('borders' => array(
                                     'allborders' => array(
@@ -1966,20 +1966,20 @@ class Aplicacao_Relatorio_Excel {
                                 'fill' => array(
                                     'type' => PHPExcel_Style_Fill::FILL_SOLID,
                                     'color' => array('rgb' => '808080')
-                                ))        
-                                        
+                                ))
+
                     );
 
                     $new_sheet->setCellValue('A5', 'Nº ');
                     $new_sheet->setCellValue('B5', 'Aluno(a)');
                     $new_sheet->getColumnDimension('B')->setWidth(50);
-                    $new_sheet->setCellValue('C5', '1ª AV 30'); 
-                    $new_sheet->setCellValue('D5', '2ª AV 30'); 
-                    $new_sheet->setCellValue('E5', 'ATIV. 1'); 
-                    $new_sheet->setCellValue('F5', 'ATIV. 2'); 
-                    $new_sheet->setCellValue('G5', 'ATIV. 3'); 
-                    $new_sheet->setCellValue('H5', 'ATIV. 4'); 
-                    $new_sheet->setCellValue('I5', 'TOTAL'); 
+                    $new_sheet->setCellValue('C5', '1ª AV 30');
+                    $new_sheet->setCellValue('D5', '2ª AV 30');
+                    $new_sheet->setCellValue('E5', 'ATIV. 1');
+                    $new_sheet->setCellValue('F5', 'ATIV. 2');
+                    $new_sheet->setCellValue('G5', 'ATIV. 3');
+                    $new_sheet->setCellValue('H5', 'ATIV. 4');
+                    $new_sheet->setCellValue('I5', 'TOTAL');
                     $i = 6;
                     $z = 1;
                     foreach ($alunos_turma as $aluno) {
@@ -2001,7 +2001,7 @@ class Aplicacao_Relatorio_Excel {
                         }
 
                         $new_sheet->getRowDimension($i)->setRowHeight(25);
-                        
+
                         /* $new_sheet->getStyle('A' . $i . ':' . $this->getLetra($j - 1) . $i)->applyFromArray(
                           array('borders' => array(
                           'allborders' => array(
@@ -2030,7 +2030,7 @@ class Aplicacao_Relatorio_Excel {
                     }
                     $linhas += $i;
                     $new_sheet->getStyle('A0:P' . $linhas)->getAlignment()->setWrapText(true);
-                    //$new_sheet->mergeCells('J5:' .$this->getLetra($j - 1).$i);    
+                    //$new_sheet->mergeCells('J5:' .$this->getLetra($j - 1).$i);
                     $new_sheet->getStyle('A6:' . $this->getLetra($j - 1) . ($i))->applyFromArray(
                             array('borders' => array(
                                     'allborders' => array(
@@ -2047,14 +2047,14 @@ class Aplicacao_Relatorio_Excel {
                     $indice_sheet++;
                 }
                 $new_sheet->setCellValue('B'.$linhas, strtoupper("Assinatura:"));
-                    $new_sheet->removeColumnByIndex(9,10);    
+                    $new_sheet->removeColumnByIndex(9,10);
                     $new_sheet->getStyle('J1:' . $this->getLetra($j - 1) . ($linhas))->applyFromArray(
                             array('borders' => array(
                                     'allborders' => array(
                                         'style' => PHPExcel_Style_Border::BORDER_NONE,
                                         'color' => array('argb' => '000000'),
                                     ))
-                                 )   
+                                 )
                                );
 
                 if ($formato_saida == 'xls') {
