@@ -71,7 +71,7 @@ class Application_Form_FormDisciplina extends Zend_Form {
 
         if ($this->cadastro == false) {
 
-          $vagas_do_curso = new Zend_Form_Element_Text('vagas_do_curso');
+          $vagas_do_curso = new Zend_Form_Element_Text('total_vagas_do_curso');
           $vagas_do_curso->setLabel('Total de Vagas do Curso:')
                   ->setAttrib('class', 'obrigatorio')
                   ->setRequired(true)
@@ -82,7 +82,7 @@ class Application_Form_FormDisciplina extends Zend_Form {
                       'Label'
                   ));
 
-          $fila_de_nivelamento = new Zend_Form_Element_Text('fila_de_nivelamento');
+          $fila_de_nivelamento = new Zend_Form_Element_Text('total_fila_de_nivelamento');
           $fila_de_nivelamento->setLabel('Tamanho da Fila de Nivelamento:')
                   ->setAttrib('class', 'obrigatorio')
                   ->setRequired(true)
@@ -93,7 +93,7 @@ class Application_Form_FormDisciplina extends Zend_Form {
                       'Label'
                   ));
 
-          $fila_de_espera = new Zend_Form_Element_Text('fila_de_espera');
+          $fila_de_espera = new Zend_Form_Element_Text('total_fila_de_espera');
           $fila_de_espera->setLabel('Tamanho da Fila de Espera:')
                   ->setAttrib('class', 'obrigatorio')
                   ->setRequired(true)
@@ -104,7 +104,7 @@ class Application_Form_FormDisciplina extends Zend_Form {
                       'Label'
                   ));
 
-          $total_vagas_do_curso = new Zend_Form_Element_Text('total_vagas_do_curso');
+          $total_vagas_do_curso = new Zend_Form_Element_Text('vagas_do_curso');
           $total_vagas_do_curso->setLabel('Vagas ocupadas no Curso:')
                   ->setAttrib('class', 'obrigatorio')
                   ->setAttrib('disabled', 'disabled')
@@ -116,7 +116,7 @@ class Application_Form_FormDisciplina extends Zend_Form {
                       'Label'
                   ));
 
-          $total_fila_de_nivelamento = new Zend_Form_Element_Text('total_fila_de_nivelamento');
+          $total_fila_de_nivelamento = new Zend_Form_Element_Text('fila_de_nivelamento');
           $total_fila_de_nivelamento->setLabel('Vagas ocupadas na Fila de Nivelamento:')
                   ->setAttrib('class', 'obrigatorio')
                   ->setAttrib('disabled', 'disabled')
@@ -128,7 +128,7 @@ class Application_Form_FormDisciplina extends Zend_Form {
                       'Label'
                   ));
 
-          $total_fila_de_espera = new Zend_Form_Element_Text('total_fila_de_espera');
+          $total_fila_de_espera = new Zend_Form_Element_Text('fila_de_espera');
           $total_fila_de_espera->setLabel('Vagas ocupadas na Fila de Espera:')
                   ->setAttrib('class', 'obrigatorio')
                   ->setAttrib('disabled', 'disabled')
