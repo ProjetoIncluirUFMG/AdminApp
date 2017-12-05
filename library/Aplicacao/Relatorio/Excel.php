@@ -590,7 +590,7 @@ class Aplicacao_Relatorio_Excel {
             if (!empty($alunos_turmas)) {
                 set_time_limit(0);
                 @ini_set('memory_limit', '512M');
-
+                print(getcwd().'/imagens/logo-projeto-incluir.PNG')
                 $image = file_get_contents(getcwd().'/imagens/logo-projeto-incluir.PNG');
                 file_put_contents('logo.png', $image);
 
