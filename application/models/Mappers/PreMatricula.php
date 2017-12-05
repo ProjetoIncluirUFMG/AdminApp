@@ -19,10 +19,15 @@ class Application_Model_Mappers_PreMatricula {
 
       try {
 
+        // Mudar status tabela de pre-matricula
         $this->db_pre_matricula = new Application_Model_DbTable_PreMatricula();
         $where = $this->db_pre_matricula->getAdapter()->quoteInto('status = ?', 'Ativo');
-
         $this->db_pre_matricula->update(array('status' => 'Deletado', 'data_modificado' => date("Y-m-d h:i:s")), $where);
+
+        // Atualizar contadores das disciplinas
+        $this->db_disciplina = new Application_Model_DbTable_Disciplina();
+        $where = $this->db_disciplina->getAdapter()->quoteInto('id_disciplina != ?', '');
+        $this->db_disciplina->update(array('vagas_do_curso' => 0, 'fila_de_nivelamento' => 0, 'fila_de_espera' => 0, 'total_vagas_do_curso' => 0, 'total_fila_de_nivelamento' => 0, 'total_fila_de_espera' => 0), $where);
 
         return true;
 
